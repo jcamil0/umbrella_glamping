@@ -6,7 +6,7 @@ import Listings from "./components/Listing";
 import "./App.css";
 import "../src/components/Header";
 import listingsData from "./utils/listdata";
-
+import Pagination from "./components/Pagination";
 class App extends Component {
   constructor() {
     super();
@@ -29,6 +29,9 @@ class App extends Component {
       sort_by: "Lowest Price",
       view: "grid",
       search: "",
+      currentPost: 1,
+      postPerPage: 4,
+      loading: false,
     };
     this.change = this.change.bind(this);
     this.filteredData = this.filteredData.bind(this);
@@ -70,6 +73,7 @@ class App extends Component {
   }
 
   filteredData() {
+    console.log(this.state.loading);
     var newData = this.state.listingsData.filter((item) => {
       return (
         item.price >= this.state.min_price &&
@@ -133,6 +137,7 @@ class App extends Component {
     }
     this.setState({
       filteredData: newData,
+      loading: true,
     });
   }
 
@@ -185,6 +190,18 @@ class App extends Component {
   }
 
   render() {
+    const indexOfLastTodo = this.state.currentPost * this.state.postPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - this.state.postPerPage;
+    const currentTodos = this.state.filteredData.slice(
+      indexOfFirstTodo,
+      indexOfLastTodo
+    );
+    console.log(this.state.currentPost);
+    const paginate = (pageNumber) =>
+      this.setState({
+        currentPost: pageNumber,
+      });
+
     return (
       <div>
         <Header
@@ -202,13 +219,18 @@ class App extends Component {
             changeView={this.changeView}
           />
           <Listings
-            listingsData={this.state.filteredData}
+            listingsData={currentTodos}
             change={this.change}
             globalState={this.state}
             populateAction={this.populateForms}
             changeView={this.changeView}
           />
         </section>
+        <Pagination
+          postPerPage={this.state.postPerPage}
+          totalPost={this.state.listingsData.length}
+          paginate={paginate}
+        />
       </div>
     );
   }

@@ -155,7 +155,7 @@ class Listings extends Component {
               <div className="bottom-row">{this.loopListings()}</div>
             </section>
 
-            <section id="pagination">
+            {/* <section id="pagination">
               <ul className="pages">
                 <li>Prev</li>
                 <li className="active">1</li>
@@ -164,7 +164,7 @@ class Listings extends Component {
                 <li>4</li>
                 <li>Next</li>
               </ul>
-            </section>
+            </section> */}
           </div>
         </section>
       </div>
