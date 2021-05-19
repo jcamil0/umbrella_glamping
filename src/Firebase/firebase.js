@@ -1,6 +1,8 @@
-import * as firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 
-var config = {
+const config = {
   apiKey: "AIzaSyC9fdBoMoZeFb8jqKdiHjm4iyLCpzllL6g",
   authDomain: "dpow-4c98e.firebaseapp.com",
   databaseURL: "https://dpow-4c98e-default-rtdb.firebaseio.com",
@@ -11,6 +13,13 @@ var config = {
   measurementId: "G-QX28B43LLP",
 };
 
-const firebaseApp = firebase.initializeApp(config);
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 
-export default firebaseApp;
+const db = firebase.database();
+const auth = firebase.auth();
+
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
+
+export { db, auth, facebookProvider };

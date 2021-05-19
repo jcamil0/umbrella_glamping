@@ -1,36 +1,63 @@
 import React, { Component } from "react";
-import "./Header.css";
-class Header extends Component {
-  constructor() {
-    super();
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+} from "reactstrap";
+
+const links = [
+  { href: "#home", text: "Home" },
+  { href: "#card", text: "Product" },
+  { href: "#about", text: "About" },
+  { href: "#cata", text: "Categories" },
+  { href: "#test", text: "Blogs" },
+  { href: "#test2", text: "News" },
+  { href: "#busns", text: "Adds", className: "btnadd" },
+  { href: "/login", text: "LOGIN" },
+];
+
+const createNavItem = ({ href, text, className }) => (
+  <NavItem>
+    <NavLink href={href} className={className}>
+      {text}
+    </NavLink>
+  </NavItem>
+);
+
+export default class Example extends Component {
+  constructor(props) {
+    super(props);
+
     this.state = {
-      name: "Adam",
+      isOpen: false,
     };
+
+    this.toggle = this.toggle.bind(this);
   }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
+
   render() {
     return (
-      <header>
-        <div className="logo">
-          <span className="home">HOME</span>
-        </div>
-        <section className="search-area">
-          <input
-            type="text"
-            name="search"
-            placeholder="Search"
-            onChange={this.props.change}
-          />
-        </section>
-        <nav>
-          <a href="#">About</a>
-          <a href="#">Login</a>
-          <a href="#" className="signup-button">
-            Sign Up
-          </a>
-        </nav>
-      </header>
+      <div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              {links.map(createNavItem)}
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
     );
   }
 }
-
-export default Header;
