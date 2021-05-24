@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { auth } from "./Firebase/index";
 
@@ -12,8 +12,8 @@ import PasswordForgetPage from "./auth/PasswordForget";
 import Account from "./auth/Account";
 import withAuthentication from "./auth/withAuthentication";
 
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
 
       <Route exact path={routes.ACCOUNT} component={Account} /> */}
 
-      <Navigation />
+      {/* <Navigation /> */}
       <Route exact path={routes.LANDING} component={LandingPage} />
       <Route exact path={routes.SIGN_UP} component={SignIn} />
       <Route exact path={routes.SIGN_IN} component={Register} />

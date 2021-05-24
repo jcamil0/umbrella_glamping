@@ -1,17 +1,26 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Navbar from "./Landing/Navbar/Navbar";
+import Carousel from "./Landing/Carousel/Carousel";
+import AboutUs from "./Landing/AboutUs/AboutUs";
+import Rooms from "./Landing/Rooms/Rooms";
+import ContactUs from "./Landing/ContactUs/ContactUs";
 
-const LandingPage = () => (
-  <div>
-    <h1>Landing Page</h1>
-    <p>This page is public, accessible by everyone</p>
-    <p>
-      Est cillum sunt qui nulla esse mollit quis magna enim non non laborum
-      culpa nisi. Amet do nisi minim amet dolor quis veniam fugiat exercitation
-      duis anim occaecat. Mollit pariatur minim aute eiusmod est ad dolore
-      labore fugiat deserunt quis. Aliquip dolor ex irure sunt voluptate
-      exercitation voluptate incididunt.
-    </p>
-  </div>
-);
+const Landing = () => {
+  return (
+    <div className="App">
+      <Container>
+        <Row>
+          <Navbar />
+          <Carousel />
+          <AboutUs />
+          <Rooms />
+          <ContactUs />
+        </Row>
+      </Container>
+    </div>
+  );
+};
 
-export default LandingPage;
+export default Landing;

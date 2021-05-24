@@ -5,7 +5,7 @@ import { auth } from "../Firebase/index";
 const SignOutButton = () => (
   <Button color="info" onClick={auth.doSignOut}>
     Sign Out
-    {console.log(auth.doSignOut)}
+    {/* {console.log(auth.doSignOut)} */}
   </Button>
 );
 
