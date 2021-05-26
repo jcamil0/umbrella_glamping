@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import { auth } from "./Firebase/index";
-
 import * as routes from "./constants/routes";
 import Navigation from "./components/Navbar";
-import LandingPage from "./Landing";
+import LandingPage from "./Landing/Landing";
 import HomePage from "./Home";
 import SignIn from "./auth/SignIn";
 import Register from "./auth/Register";
 import PasswordForgetPage from "./auth/PasswordForget";
 import Account from "./auth/Account";
 import withAuthentication from "./auth/withAuthentication";
+
+import "./styles/App.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
@@ -28,7 +29,5 @@ function App() {
       <Route exact path={routes.ACCOUNT} component={Account} />
     </BrowserRouter>
   );
-
-  // export default App;
 }
 export default withAuthentication(App); //using HoC to handle session
