@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { auth } from "./Firebase/index";
 
 import * as routes from "./constants/routes";
@@ -12,26 +12,9 @@ import PasswordForgetPage from "./auth/PasswordForget";
 import Account from "./auth/Account";
 import withAuthentication from "./auth/withAuthentication";
 
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
-
 function App() {
   return (
     <BrowserRouter>
-      {/* <Route
-        exact
-        path="/"
-        render={() =>
-          isAuthenticated ? (
-            <Redirect to={routes.ACCOUNT} />
-          ) : (
-            <h1 style={{ background: "black" }}>bienvvenido</h1>
-          )
-        }
-      />
-
-      <Route exact path={routes.ACCOUNT} component={Account} /> */}
-
       {/* <Navigation /> */}
       <Route exact path={routes.LANDING} component={LandingPage} />
       <Route exact path={routes.SIGN_UP} component={SignIn} />

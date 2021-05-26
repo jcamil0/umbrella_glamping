@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Filter from "./components/Filter";
 import Listings from "./components/Listing";
-import "./App.css";
 import "../src/components/Header";
 import listingsData from "./utils/listdata";
 import Pagination from "./components/Pagination";
+import "./styles/App.css";
 class App extends Component {
   constructor() {
     super();

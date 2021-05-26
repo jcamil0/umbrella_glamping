@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Header.css";
+import "../styles/Header.css";
 class Header extends Component {
   constructor() {
     super();
@@ -22,8 +22,7 @@ class Header extends Component {
           />
         </section>
         <nav>
-          <a href="#">About</a>
-          <a href="#">Login</a>
+          <a href="/account">Account</a>
           <a href="#" className="signup-button">
             Sign Up
           </a>

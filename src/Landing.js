@@ -6,10 +6,11 @@ import Carousel from "./Landing/Carousel/Carousel";
 import AboutUs from "./Landing/AboutUs/AboutUs";
 import Rooms from "./Landing/Rooms/Rooms";
 import ContactUs from "./Landing/ContactUs/ContactUs";
+import "./App.css";
 
-const Landing = () => {
+const App = () => {
   return (
-    <div className="App">
+    <div classname="app">
       <Container>
         <Row>
           <Navbar />
@@ -23,4 +24,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default App;

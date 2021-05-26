@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import ReactDOM from 'react-dom';
-import "./Listing.css";
+import "../styles/Listing.css";
 class Listings extends Component {
   constructor() {
     super();
