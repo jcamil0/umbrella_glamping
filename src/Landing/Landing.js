@@ -8,16 +8,9 @@ import ContactUs from "./ContactUs/ContactUs";
 
 const App = () => {
   return (
-    <Container
-      className="align-items-center"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Container>
       <Row className="justify-content-center">
-        <Navbar />
+        {/* <Navbar /> */}
         <Carousel />
         <AboutUs />
         <Rooms />

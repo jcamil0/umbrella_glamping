@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
 import * as routes from "../constants/routes";
-import { auth, db } from "../Firebase/index";
+import { auth, db } from "../firebase";
 
 const SignUpPage = ({ history }) => (
   <div>

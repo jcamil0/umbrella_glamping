@@ -1,11 +1,11 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { auth } from "../Firebase/index";
+import { Button } from "reactstrap";
+
+import { auth } from "../firebase";
 
 const SignOutButton = () => (
   <Button color="info" onClick={auth.doSignOut}>
     Sign Out
-    {/* {console.log(auth.doSignOut)} */}
   </Button>
 );
 

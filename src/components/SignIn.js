@@ -4,9 +4,9 @@ import { FacebookLoginButton } from "react-social-login-buttons";
 
 import { withRouter } from "react-router-dom";
 
-import { SignUpLink } from "./Register";
+import { SignUpLink } from "./SignUp";
 import { PasswordForgetLink } from "./PasswordForget";
-import { auth, db } from "../Firebase/index";
+import { auth, db } from "../firebase";
 import * as routes from "../constants/routes";
 
 const SignInPage = ({ history }) => {
@@ -71,9 +71,6 @@ class SignInForm extends Component {
           authUser.user.email
         )
           .then(() => {
-            // this.setState({
-            //   ...INITIAL_STATE
-            // });
             history.push(routes.HOME); //redirects to Home Page
           })
           .catch((error) => {
@@ -146,7 +143,9 @@ class SignInForm extends Component {
         </Form>
 
         <hr />
+
         <FacebookLoginButton onClick={this.facebookLogin} />
+        {/* <button onClick={this.facebookLogin}>Login with Facebook</button> */}
       </div>
     );
   }

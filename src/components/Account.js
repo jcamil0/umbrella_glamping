@@ -8,7 +8,7 @@ import withAuthorization from "./withAuthorization"; //redirects to sign in if u
 const AccountPage = () => (
   //authUser is passed down via Context API (It is set at withAuthentication.js file)
   <AuthUserContext.Consumer>
-    {(authUser) => (
+    {authUser => (
       <div className="div-flex">
         <div>
           <h5 className="centered">
@@ -27,7 +27,7 @@ const AccountPage = () => (
   </AuthUserContext.Consumer>
 );
 
-const authCondition = (authUser) =>
+const authCondition = authUser =>
   !!authUser && authUser.providerData[0].providerId !== "facebook.com"; //true and false
 
 export default withAuthorization(authCondition)(AccountPage);

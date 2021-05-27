@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
-import { auth } from "../Firebase/index";
+import { auth } from "../firebase";
 import * as routes from "../constants/routes";
 
 //it resets your password. It doesn’t matter if you are authenticated or not
@@ -104,4 +104,5 @@ const PasswordForgetLink = () => (
 );
 
 export default PasswordForgetPage;
+
 export { PasswordForgetForm, PasswordForgetLink };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
 
-import { auth } from "../Firebase/index";
+import { auth } from "../firebase";
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value,
