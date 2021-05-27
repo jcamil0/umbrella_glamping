@@ -4,8 +4,10 @@ import Filter from "./components/Filter";
 import Listings from "./components/Listing";
 import listingsData from "./utils/listdata";
 import Pagination from "./components/Pagination";
-// import "./styles/App.css";
-class App extends Component {
+import "./styles/App.css";
+import withAuthorization from "./auth/withAuthorization";
+import { db } from "./firebase";
+class Home extends Component {
   constructor() {
     super();
     this.state = {
@@ -36,6 +38,12 @@ class App extends Component {
     this.populateForms = this.populateForms.bind(this);
     this.changeView = this.changeView.bind(this);
   }
+  // user data
+  state = {
+    users: null,
+    username: "",
+    loading: true,
+  };
 
   componentWillMount() {
     var listingsData = this.state.listingsData.sort((a, b) => {
@@ -43,6 +51,15 @@ class App extends Component {
     });
     this.setState({
       listingsData,
+    });
+
+    //user db
+    const { loggedUser } = this.props;
+    db.doGetAnUnser(loggedUser.uid).then((res) => {
+      this.setState({
+        username: res.val().username,
+        loading: false,
+      });
     });
   }
 
@@ -188,6 +205,9 @@ class App extends Component {
   }
 
   render() {
+    const { users, username, loading } = this.state;
+    // console.log("dasdf", this.props.loggedUser);
+
     const indexOfLastTodo = this.state.currentPost * this.state.postPerPage;
     const indexOfFirstTodo = indexOfLastTodo - this.state.postPerPage;
     const currentTodos = this.state.filteredData.slice(
@@ -201,36 +221,40 @@ class App extends Component {
       });
 
     return (
-      <>
-        <Header
-          listingsData={this.state.filteredData}
-          change={this.change}
-          globalState={this.state}
-          populateAction={this.populateForms}
-        />
-        <section id="content-area">
-          <Filter
+      !loading && (
+        <div>
+          <Header
             listingsData={this.state.filteredData}
             change={this.change}
             globalState={this.state}
             populateAction={this.populateForms}
-            changeView={this.changeView}
           />
-          <Listings
-            listingsData={currentTodos}
-            change={this.change}
-            globalState={this.state}
-            populateAction={this.populateForms}
-            changeView={this.changeView}
+          <section id="content-area">
+            <Filter
+              listingsData={this.state.filteredData}
+              change={this.change}
+              globalState={this.state}
+              populateAction={this.populateForms}
+              changeView={this.changeView}
+            />
+            <Listings
+              listingsData={currentTodos}
+              change={this.change}
+              globalState={this.state}
+              populateAction={this.populateForms}
+              changeView={this.changeView}
+            />
+          </section>
+          <Pagination
+            postPerPage={this.state.postPerPage}
+            totalPost={this.state.listingsData.length}
+            paginate={paginate}
           />
-        </section>
-        <Pagination
-          postPerPage={this.state.postPerPage}
-          totalPost={this.state.listingsData.length}
-          paginate={paginate}
-        />
-      </>
+        </div>
+      )
     );
   }
 }
-export default App;
+const authCondition = (authUser) => !!authUser;
+
+export default withAuthorization(authCondition)(Home);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "../styles/Filter.css";
+import "../styles/Filter.css";
 class Filter extends Component {
   constructor() {
     super();
@@ -72,12 +72,6 @@ class Filter extends Component {
       });
     }
   }
-
-  // dropDown = () => {
-  //   this.setState(prevState =>({
-  //     showExtras: !prevState.showExtras,
-  //   }))
-  // }
 
   render() {
     return (

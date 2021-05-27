@@ -11,9 +11,8 @@
   top: 10%;
 }
 .container {
-  margin: 0 6px 0 6px;
-  width: 150px;
-  float: left;
+  width: 100%;
+  margin: auto;
   position: relative;
 }
 h1 {
