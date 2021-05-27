@@ -5,14 +5,14 @@ import "./App.css";
 
 import * as routes from "../constants/routes";
 
-import Navigation from "./Navigation";
+import Navigation from "../components/Navigation";
 import LandingPage from "../Landing/Landing";
-import SignUpPage from "./SignUp";
-import SignInPage from "./SignIn";
-import PasswordForgetPage from "./PasswordForget";
-import HomePage from "./Home";
-import AccountPage from "./Account";
-import withAuthentication from "./withAuthentication";
+import SignUpPage from "../auth/SignUp";
+import SignInPage from "../auth/SignIn";
+import PasswordForgetPage from "../auth/PasswordForget";
+import HomePage from "../components/Home";
+import AccountPage from "../auth/Account";
+import withAuthentication from "../auth/withAuthentication";
 
 const App = () => (
   <BrowserRouter>

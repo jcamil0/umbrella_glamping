@@ -2,10 +2,10 @@ import React from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import SignOutButton from "./SignOut";
+import SignOutButton from "../auth/SignOut";
 import * as routes from "../constants/routes";
 
-import AuthUserContext from "./AuthUserContext";
+import AuthUserContext from "../auth/AuthUserContext";
 
 const Navigation = () => (
   <AuthUserContext.Consumer>
