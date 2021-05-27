@@ -9,7 +9,7 @@ import SignInPage from "../auth/SignIn";
 import PasswordForgetPage from "../auth/PasswordForget";
 import HomePage from "../components/Home";
 import AccountPage from "../auth/Account";
-
+import Home from "../Home";
 import * as routes from "../constants/routes";
 import withAuthentication from "../auth/withAuthentication";
 
@@ -27,6 +27,7 @@ const App = () => (
       />
       <Route exact path={routes.HOME} component={HomePage} />
       <Route exact path={routes.ACCOUNT} component={AccountPage} />
+      <Route exact path="/hola" component={Home} />
     </Container>
   </BrowserRouter>
 );

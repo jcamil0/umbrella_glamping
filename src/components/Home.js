@@ -37,23 +37,10 @@ class HomePage extends Component {
         <p style={{ marginTop: "80px" }}>
           NOTE: This page is only accessible by signed in users.
         </p>
-        {/* {!!users && <UserList users={users} />} */}
       </div>
     );
   }
 }
-
-// const UserList = ({ users }) => (
-//   <div>
-//     {console.log("users", users)}
-//     <h2>List of Usernames of Users</h2>
-//     <p>(Saved on Sign Up in Firebase Database)</p>
-
-//     {Object.keys(users).map(key => (
-//       <div key={key}>{users[key].username}</div>
-//     ))}
-//   </div>
-// );
 
 const authCondition = (authUser) => !!authUser;
 

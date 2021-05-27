@@ -4,7 +4,7 @@ import Filter from "./components/Filter";
 import Listings from "./components/Listing";
 import listingsData from "./utils/listdata";
 import Pagination from "./components/Pagination";
-import "./styles/App.css";
+// import "./styles/App.css";
 class App extends Component {
   constructor() {
     super();
@@ -201,7 +201,7 @@ class App extends Component {
       });
 
     return (
-      <div>
+      <>
         <Header
           listingsData={this.state.filteredData}
           change={this.change}
@@ -229,7 +229,7 @@ class App extends Component {
           totalPost={this.state.listingsData.length}
           paginate={paginate}
         />
-      </div>
+      </>
     );
   }
 }
