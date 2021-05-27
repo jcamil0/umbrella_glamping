@@ -10,7 +10,7 @@ const config = {
   databaseURL: "https://react-firebase-authentic-b43cd.firebaseio.com",
   projectId: "react-firebase-authentic-b43cd",
   storageBucket: "react-firebase-authentic-b43cd.appspot.com",
-  messagingSenderId: "502482847019"
+  messagingSenderId: "502482847019",
 };
 
 if (!firebase.apps.length) {

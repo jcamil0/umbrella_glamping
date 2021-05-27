@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Container } from "reactstrap";
-import "./App.css";
-
-import * as routes from "../constants/routes";
 
 import Navigation from "../components/Navigation";
 import LandingPage from "../Landing/Landing";
@@ -12,6 +9,8 @@ import SignInPage from "../auth/SignIn";
 import PasswordForgetPage from "../auth/PasswordForget";
 import HomePage from "../components/Home";
 import AccountPage from "../auth/Account";
+
+import * as routes from "../constants/routes";
 import withAuthentication from "../auth/withAuthentication";
 
 const App = () => (

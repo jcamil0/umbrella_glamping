@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import ReactDOM from 'react-dom';
 import "../styles/Listing.css";
 class Listings extends Component {
   constructor() {

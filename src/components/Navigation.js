@@ -3,8 +3,8 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import SignOutButton from "../auth/SignOut";
-import * as routes from "../constants/routes";
 
+import * as routes from "../constants/routes";
 import AuthUserContext from "../auth/AuthUserContext";
 
 const Navigation = () => (
@@ -23,7 +23,26 @@ const NavigationNonAuth = () => (
     <Nav className="ml-auto" navbar>
       <NavItem>
         <NavLink>
+          <a href="#about-us">about-us</a>
           <Link to={routes.SIGN_IN}>Sign In</Link>
+        </NavLink>
+      </NavItem>
+
+      <NavItem>
+        <NavLink>
+          <Link to={routes.HOME}>Home</Link>
+        </NavLink>
+      </NavItem>
+
+      <NavItem>
+        <NavLink>
+          <a href="#about-us">about-us</a>
+        </NavLink>
+      </NavItem>
+
+      <NavItem>
+        <NavLink>
+          <a href="#contact-us">contact-us</a>
         </NavLink>
       </NavItem>
     </Nav>
@@ -43,6 +62,19 @@ const NavigationAuth = ({ userInfo }) => (
           <Link to={routes.HOME}>Home</Link>
         </NavLink>
       </NavItem>
+
+      <NavItem>
+        <NavLink>
+          <a href="#about-us">about-us</a>
+        </NavLink>
+      </NavItem>
+
+      <NavItem>
+        <NavLink>
+          <a href="#contact-us">contact-us</a>
+        </NavLink>
+      </NavItem>
+
       {userInfo.providerData[0].providerId === "facebook.com" ? null : (
         <NavItem>
           <NavLink>
