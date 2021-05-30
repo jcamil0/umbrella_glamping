@@ -153,17 +153,6 @@ class Listings extends Component {
             <section className="list-results">
               <div className="bottom-row">{this.loopListings()}</div>
             </section>
-
-            {/* <section id="pagination">
-              <ul className="pages">
-                <li>Prev</li>
-                <li className="active">1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>Next</li>
-              </ul>
-            </section> */}
           </div>
         </section>
       </div>

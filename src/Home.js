@@ -31,7 +31,6 @@ class Home extends Component {
       search: "",
       currentPost: 1,
       postPerPage: 4,
-      loading: false,
     };
     this.change = this.change.bind(this);
     this.filteredData = this.filteredData.bind(this);
@@ -42,7 +41,6 @@ class Home extends Component {
   state = {
     users: null,
     username: "",
-    loading: true,
   };
 
   componentWillMount() {
@@ -58,7 +56,6 @@ class Home extends Component {
     db.doGetAnUnser(loggedUser.uid).then((res) => {
       this.setState({
         username: res.val().username,
-        loading: false,
       });
     });
   }
@@ -88,7 +85,6 @@ class Home extends Component {
   }
 
   filteredData() {
-    console.log(this.state.loading);
     var newData = this.state.listingsData.filter((item) => {
       return (
         item.price >= this.state.min_price &&
@@ -152,7 +148,6 @@ class Home extends Component {
     }
     this.setState({
       filteredData: newData,
-      loading: true,
     });
   }
 
@@ -205,7 +200,6 @@ class Home extends Component {
   }
 
   render() {
-    const { users, username, loading } = this.state;
     // console.log("dasdf", this.props.loggedUser);
 
     const indexOfLastTodo = this.state.currentPost * this.state.postPerPage;
@@ -221,37 +215,35 @@ class Home extends Component {
       });
 
     return (
-      !loading && (
-        <div>
-          <Header
+      <div>
+        <Header
+          listingsData={this.state.filteredData}
+          change={this.change}
+          globalState={this.state}
+          populateAction={this.populateForms}
+        />
+        <section id="content-area">
+          <Filter
             listingsData={this.state.filteredData}
             change={this.change}
             globalState={this.state}
             populateAction={this.populateForms}
+            changeView={this.changeView}
           />
-          <section id="content-area">
-            <Filter
-              listingsData={this.state.filteredData}
-              change={this.change}
-              globalState={this.state}
-              populateAction={this.populateForms}
-              changeView={this.changeView}
-            />
-            <Listings
-              listingsData={currentTodos}
-              change={this.change}
-              globalState={this.state}
-              populateAction={this.populateForms}
-              changeView={this.changeView}
-            />
-          </section>
-          <Pagination
-            postPerPage={this.state.postPerPage}
-            totalPost={this.state.listingsData.length}
-            paginate={paginate}
+          <Listings
+            listingsData={currentTodos}
+            change={this.change}
+            globalState={this.state}
+            populateAction={this.populateForms}
+            changeView={this.changeView}
           />
-        </div>
-      )
+        </section>
+        <Pagination
+          postPerPage={this.state.postPerPage}
+          totalPost={this.state.listingsData.length}
+          paginate={paginate}
+        />
+      </div>
     );
   }
 }
