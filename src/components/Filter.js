@@ -82,7 +82,6 @@ class Filter extends Component {
               <div className="container">
                 <div
                   className="inner-neighborhood-container"
-                  style={{ border: "1px solid black", borderRadius: "8px" }}
                 >
                   <select
                     name="neighborhood"
