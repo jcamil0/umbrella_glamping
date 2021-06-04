@@ -34,6 +34,7 @@ class App extends Component {
       return <p>{msg.message}</p>;
     });
     return (
+      //remove
       <div className="container">
         <ListData listMsg={this.state.listMsg} />
         <InputData onClickButtonHandler={this.onClickButtonHandlerData} />
