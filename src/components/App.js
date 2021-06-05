@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import { Container } from "reactstrap";
+import { Container, Form } from "reactstrap";
 
 import Navigation from "../components/Navigation";
 import LandingPage from "../Landing/Landing";
@@ -11,6 +11,8 @@ import AccountPage from "../auth/Account";
 import * as routes from "../constants/routes";
 import Home from "../Home";
 import withAuthentication from "../auth/withAuthentication";
+import FormData from "../components/Form";
+import CustomerEdit from "./CustomerEdit";
 
 const App = () => (
   <BrowserRouter>
@@ -26,6 +28,8 @@ const App = () => (
       />
       <Route exact path={routes.HOME} component={Home} />
       <Route exact path={routes.ACCOUNT} component={AccountPage} />
+
+      <Route path="/customers/:key" component={FormData} />
     </Container>
   </BrowserRouter>
 );
