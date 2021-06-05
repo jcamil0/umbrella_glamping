@@ -50,15 +50,6 @@ class Home extends Component {
     this.setState({
       listingsData,
     });
-
-    //user db
-    const { loggedUser } = this.props;
-
-    // db.doGetAnUnser(loggedUser.uid).then((res) => {
-    //   this.setState({
-    //     username: res.val().username,
-    //   });
-    // });
   }
 
   change(event) {

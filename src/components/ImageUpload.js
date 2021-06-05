@@ -80,7 +80,7 @@ class ImageUpload extends Component {
           width="400"
         />
 
-        {this.state.file.map((image, i) => (
+        {/* {this.state.file.map((image, i) => (
           <img
             src={image}
             key={i}
@@ -89,7 +89,7 @@ class ImageUpload extends Component {
               height: 400,
             }}
           />
-        ))}
+        ))} */}
         <div className="row">
           <progress
             value={this.state.progress}

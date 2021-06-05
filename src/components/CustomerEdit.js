@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import FirebaseService from "../firebase/db";
-
 class CustomerEdit extends Component {
   emptyCustomer = {
-    key: "",
-    firstname: "",
-    lastname: "",
-    age: "",
     address: "",
+    neighborhood: "",
+    rooms: 0,
+    baths: 0,
+    date: new Date().toLocaleDateString(),
+    price: 0,
+    floorSpace: 0,
+    pool: false,
+    key: "",
   };
 
   constructor(props) {
@@ -33,12 +36,13 @@ class CustomerEdit extends Component {
   onDataChange = (item) => {
     let data = item.val();
     let customer = {
+      rooms: data.rooms,
+      neighborhood: data.neighborhood,
+      baths: data.baths,
+      rooms: data.rooms,
+      price: data.price,
+      floorSpace: data.floorSpace,
       key: item.key,
-      firstname: data.firstname,
-      lastname: data.lastname,
-      age: data.age,
-      address: data.address,
-      copyrightby: "https://loizenai.com",
     };
 
     this.setState({
@@ -77,41 +81,7 @@ class CustomerEdit extends Component {
         {title}
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <Label for="firstname">Nombre</Label>
-            <Input
-              type="text"
-              name="firstname"
-              id="firstname"
-              value={item.firstname || ""}
-              onChange={this.handleChange}
-              autoComplete="firstname"
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <Label for="lastname">Lastname</Label>
-            <Input
-              type="text"
-              name="lastname"
-              id="lastname"
-              value={item.lastname || ""}
-              onChange={this.handleChange}
-              autoComplete="lastname"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="age">Age</Label>
-            <Input
-              type="text"
-              name="age"
-              id="age"
-              value={item.age || ""}
-              onChange={this.handleChange}
-              autoComplete="age"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="address">Address</Label>
+            <Label for="address">Dirrecion</Label>
             <Input
               type="text"
               name="address"
@@ -121,6 +91,78 @@ class CustomerEdit extends Component {
               autoComplete="address"
             />
           </FormGroup>
+
+          <FormGroup>
+            <Label for="neighborhood">Barrio</Label>
+            <Input
+              type="text"
+              name="neighborhood"
+              id="neighborhood"
+              value={item.neighborhood || ""}
+              onChange={this.handleChange}
+              autoComplete="neighborhood"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="rooms">Habitaciones </Label>
+            <Input
+              type="text"
+              name="rooms"
+              id="rooms"
+              value={item.rooms || ""}
+              onChange={this.handleChange}
+              autoComplete="rooms"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="baths">Baños</Label>
+            <Input
+              type="text"
+              name="baths"
+              id="baths"
+              value={item.baths || ""}
+              onChange={this.handleChange}
+              autoComplete="baths"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="price">Precio</Label>
+            <Input
+              type="text"
+              name="price"
+              id="price"
+              value={item.price || ""}
+              onChange={this.handleChange}
+              autoComplete="price"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <Label for="floorSpace">metros cuadrados</Label>
+            <Input
+              type="text"
+              name="floorSpace"
+              id="floorSpace"
+              value={item.floorSpace || ""}
+              onChange={this.handleChange}
+              autoComplete="floorSpace"
+            />
+          </FormGroup>
+
+          <FormGroup style={{ justifyContent: "center" }}>
+            <Label for="pool" style={{ marginRight: 30 }}>
+              Piscinia{" "}
+            </Label>
+            <Input
+              type="checkbox"
+              placeholder="piscina?"
+              onChange={(e) => console.log(e.target.checked)}
+            />
+          </FormGroup>
+
           <FormGroup>
             <Button color="primary" type="submit">
               Save
