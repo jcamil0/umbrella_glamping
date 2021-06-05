@@ -14,7 +14,7 @@ class Header extends Component {
           type="text"
           name="search"
           placeholder="Search"
-          onChange={console.log(this.props.change)}
+          onChange={this.props.change}
         />
       </div>
     );

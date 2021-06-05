@@ -5,10 +5,8 @@ import "./styles/index.css";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
-import Test from "./components/post";
-import Image from "./components/index";
-
-ReactDOM.render(<Image />, document.getElementById("root"));
+import Form from "./components/App";
+ReactDOM.render(<Form />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

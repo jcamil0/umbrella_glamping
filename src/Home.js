@@ -6,7 +6,7 @@ import listingsData from "./utils/listdata";
 import Pagination from "./components/Pagination";
 import "./styles/App.css";
 import withAuthorization from "./auth/withAuthorization";
-import { db } from "./firebase";
+// import { db } from "./firebase";
 class Home extends Component {
   constructor() {
     super();
@@ -53,11 +53,12 @@ class Home extends Component {
 
     //user db
     const { loggedUser } = this.props;
-    db.doGetAnUnser(loggedUser.uid).then((res) => {
-      this.setState({
-        username: res.val().username,
-      });
-    });
+
+    // db.doGetAnUnser(loggedUser.uid).then((res) => {
+    //   this.setState({
+    //     username: res.val().username,
+    //   });
+    // });
   }
 
   change(event) {
